@@ -31,7 +31,7 @@ class _AddUserState extends State<AddUser> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.yellow,
         title: Text(
           "Sql Crud",
           style: TextStyle(
