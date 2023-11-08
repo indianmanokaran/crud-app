@@ -1,7 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-
 class DatabaseConnection {
   static final DatabaseConnection _instance = DatabaseConnection._internal();
 
@@ -23,7 +22,7 @@ class DatabaseConnection {
   Future<Database> setDatabase() async {
     final directory = await getApplicationDocumentsDirectory();
     final path = join(directory.path, 'db_crud');
-
+    // await deleteDatabase(path);
     _database = await openDatabase(path, version: 1, onCreate: _createTable);
     return _database!;
   }
@@ -34,7 +33,11 @@ class DatabaseConnection {
         id INTEGER PRIMARY KEY,
         name TEXT,
         contact TEXT,
-        description TEXT
+        description TEXT,
+        gender TEXT,
+        dob TEXT,
+        qualification TEXT,
+        age TEXT
       );
     ''';
     await database.execute(sql);
